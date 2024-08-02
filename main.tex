@@ -1,0 +1,43 @@
+\documentclass[a4paper]{report} %es pot afegir twoside dins de [] per donar format diferent a les pàgines parells i imparells
+
+%Paquets que s'utilitzen en aquest document de tesi, afegeix els que necessitis
+    \usepackage{graphicx} %Required for inserting images
+    \usepackage[catalan]{babel} %En cas que escriguis la tesi en anglès, modifica l'idioma. Alguns títols caldrà canviar-los manualment
+    \usepackage{natbib}
+
+%Modifica els termes dins els 2ns {} perquè apareguin actualitzats a la portada i la coberta
+\newcommand{\titol}{Explorant Alternatives d'Infraestructura per Back-ends: Un Estudi de Cas sobre un joc senzill}
+\newcommand{\autortesi}{Cristian Bezerdic Stoica}
+\newcommand{\anydediposit}{2024}
+\newcommand{\tutortesi}{Gustavo Ariel Patow}
+ 
+\begin{document} 
+    \pagenumbering{arabic}
+    
+    \include{Estructura/1-Portada}
+    \include{Estructura/2-Índexs}
+    \include{Estructura/3-Introducció}
+    \include{Estructura/4-Estudi}
+    \include{Estructura/5-Metodologia}
+    \include{Estructura/6-Planificació}
+    \include{Estructura/7-Marc}
+    \include{Estructura/8-Requisits}
+    \include{Estructura/9-Estudis}
+    \include{Estructura/10-Anàlisi}
+    \include{Estructura/11-ImplementacióProves}
+    \include{Estructura/12-ImplementacióResultats}
+    \include{Estructura/13-Conclusions}
+    \include{Estructura/14-Treball}
+    \include{Estructura/15-Bibliografia}
+    \include{Estructura/16-Annexos}
+    \include{Estructura/17-Manual}
+    
+    
+  
+
+    %Bibliografia
+    \addcontentsline{toc}{part}{Bibliografia}
+    \bibliographystyle{plainnat}
+    \bibliography{referències}
+
+\end{document}
