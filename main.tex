@@ -2,8 +2,97 @@
 
 %Paquets que s'utilitzen en aquest document de tesi, afegeix els que necessitis
     \usepackage{graphicx} %Required for inserting images
-    \usepackage[catalan]{babel} %En cas que escriguis la tesi en anglès, modifica l'idioma. Alguns títols caldrà canviar-los manualment
-    \usepackage{natbib}
+    \usepackage[catalan]{babel}
+    \usepackage[utf8x]{inputenc} %perque funcionin els simbols com €
+    \usepackage{lmodern,textcomp} %perque funcionin els simbols com €
+    \usepackage{csquotes}
+    \usepackage[sorting=none,defernumbers=true]{biblatex}
+    \addbibresource{referències.bib}
+    \usepackage{listings} %code
+    \renewcommand{\lstlistingname}{Codi}
+
+    \usepackage{dirtytalk} %quotes "Say"
+
+    \usepackage{microtype} % help linebreaking
+
+    \usepackage{multirow} %multrow tables
+    \usepackage[dvipsnames]{xcolor} %necesari per hyperref en colors
+    \usepackage[colorlinks]{hyperref}
+    \hypersetup{
+        linkcolor=BrickRed
+        ,citecolor=Green
+        ,filecolor=Mulberry
+        ,urlcolor=NavyBlue
+        ,menucolor=BrickRed
+        ,runcolor=Mulberry
+        ,linkbordercolor=BrickRed
+        ,citebordercolor=Green
+        ,filebordercolor=Mulberry
+        ,urlbordercolor=NavyBlue
+        ,menubordercolor=BrickRed
+        ,runbordercolor=Mulberry
+    }
+
+        
+    \definecolor{codegreen}{rgb}{0,0.6,0}
+    \definecolor{codegray}{rgb}{0.5,0.5,0.5}
+    \definecolor{codepurple}{rgb}{0.58,0,0.82}
+    \definecolor{backcolour}{rgb}{0.95,0.95,0.92}
+    
+    \lstdefinestyle{mystyle}{
+        backgroundcolor=\color{backcolour},   
+        commentstyle=\color{codegreen},
+        keywordstyle=\color{magenta},
+        numberstyle=\tiny\color{codegray},
+        stringstyle=\color{codepurple},
+        basicstyle=\ttfamily\footnotesize,
+        breakatwhitespace=false,         
+        breaklines=true,                 
+        captionpos=b,                    
+        keepspaces=true,                 
+        numbers=left,                    
+        numbersep=5pt,                  
+        showspaces=false,                
+        showstringspaces=false,
+        showtabs=false,                  
+        tabsize=2
+    }
+    
+    \lstset{style=mystyle}
+
+    \definecolor{lightgray}{rgb}{.9,.9,.9}
+    \definecolor{darkgray}{rgb}{.4,.4,.4}
+    \definecolor{purple}{rgb}{0.65, 0.12, 0.82}
+    \lstdefinelanguage{JavaScript}{
+      keywords={break, case, catch, continue, debugger, default, delete, do, else, false, finally, for, function, if, in, instanceof, new, null, return, switch, this, throw, true, try, typeof, var, void, while, with},
+      morecomment=[l]{//},
+      morecomment=[s]{/*}{*/},
+      morestring=[b]',
+      morestring=[b]",
+      ndkeywords={class, export, boolean, throw, implements, import, this},
+      keywordstyle=\color{blue}\bfseries,
+      ndkeywordstyle=\color{darkgray}\bfseries,
+      identifierstyle=\color{black},
+      commentstyle=\color{purple}\ttfamily,
+      stringstyle=\color{red}\ttfamily,
+      sensitive=true
+    }
+    
+    \lstset{
+       language=JavaScript,
+       backgroundcolor=\color{lightgray},
+       extendedchars=true,
+       basicstyle=\footnotesize\ttfamily,
+       showstringspaces=false,
+       showspaces=false,
+       numbers=left,
+       numberstyle=\footnotesize,
+       numbersep=9pt,
+       tabsize=2,
+       breaklines=true,
+       showtabs=false,
+       captionpos=b
+    }
 
 %Modifica els termes dins els 2ns {} perquè apareguin actualitzats a la portada i la coberta
 \newcommand{\titol}{Explorant Alternatives d'Infraestructura per Back-ends: Un Estudi de Cas sobre un joc senzill}
@@ -35,9 +124,5 @@
     
   
 
-    %Bibliografia
-    \addcontentsline{toc}{part}{Bibliografia}
-    \bibliographystyle{plainnat}
-    \bibliography{referències}
 
 \end{document}

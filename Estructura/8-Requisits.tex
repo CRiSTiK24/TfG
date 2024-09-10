@@ -1,2 +1,60 @@
-\chapter{Requisits}
-\section{Requisits del sistema}
+\chapter{Requisits del sistema}
+
+Com que aquest projecte no és un desenvolupament convencional de programari, els requisits es definiran per separat per a les següents parts: Màquina-Servidor, Màquina-Client i Test de Càrrega.
+
+\section{Requisits d'una Màquina-Servidor}
+
+Els requisits funcionals d'una Màquina-Servidor inclouen la llista de requisits imprescindibles per garantir l'accés al servidor des del Test de Càrrega de la Màquina-Client. Aquests són els següents:
+
+\begin{itemize}
+    \item La màquina ha de tenir un maquinari mínim per poder utilitzar el sistema operatiu modern que tingui instal·lat.
+    \item La Màquina ha de tenir accés a Internet. 
+    \item La Màquina no pot estar sota més d'un NAT\cite{wing_network_2010}, com ara un NAT massiu.\cite{richter_multi-perspective_2016} \item La Màquina ha de tenir un tallafoc instal·lat.
+    \item Els ports necessaris per a la comunicació del servidor han d'estar oberts al tallafoc.\cite{liang_evolution_2022}
+    \item Els ports han d'estar redirigits al router per permetre l'accés al port de la màquina des d'Internet. 
+    \item La Màquina ha de tenir instal·lat i funcionant Docker Engine.  \cite{bashari_rad_introduction_2017}
+\end{itemize}
+
+Els requisits no funcionals d'una Màquina-Servidor inclouen aquells que milloren la qualitat de la prova, però no són estrictament necessaris:
+
+\begin{itemize} 
+    \item La Màquina ha de tenir components equilibrats per evitar qualsevol coll d'ampolla que pugui limitar el rendiment. \cite{singh_bottleneck_2012}
+    \item La Màquina ha de tenir una connexió a Internet suficientment bona per gestionar el trànsit de dades. 
+\end{itemize}
+
+En aquest projecte, els requisits no funcionals es veuen limitats per les màquines utilitzades per a l'estudi. Per tant, aquests requisits no funcionals il·lustren les qualitats ideals d'una Màquina-Servidor, com ara una potència equilibrada i una bona connexió de xarxa.
+
+\section{Requisits d'una Màquina-Client}
+
+Els requisits funcionals d'una Màquina-Client inclouen els requisits imprescindibles per executar el Test de Càrrega i enviar paquets a les Màquines-Servidors. Aquests són els següents:
+
+\begin{itemize}
+    \item La Màquina ha de tenir accés a Internet. 
+    \item La Màquina ha de tenir instal·lada l'eina \textit{k6}.
+\end{itemize}
+
+Els requisits no funcionals d'una Màquina-Client inclouen aquells que milloren la qualitat de la prova, però no són estrictament necessaris:
+
+\begin{itemize} 
+    \item La Màquina ha de tenir components equilibrats per evitar qualsevol coll d'ampolla que pugui limitar el rendiment. 
+    \item La Màquina ha de tenir una CPU suficient per crear els \textit{Usuaris Virtuals} necessaris per a la paral·lelització de la càrrega. 
+    \item La Màquina ha de tenir una connexió a Internet suficientment bona per gestionar les peticions enviades i rebudes. 
+\end{itemize}
+
+En aquest cas, és essencial que es compleixin els requisits no funcionals, ja que qualsevol limitació de la Màquina-Client podria afectar la qualitat de les dades obtingudes del rendiment dels servidors.
+
+\section{Requisits d'un Test de Càrrega}
+
+Els requisits funcionals d'un Test de Càrrega inclouen els requisits imprescindibles per permetre una anàlisi adequada d'un servidor HTTPS a Internet:
+
+\begin{itemize} 
+    \item El Test ha de contenir instruccions per enviar paquets al port HTTPS d'una màquina a Internet.
+    \item El Test ha de retornar informació sobre les peticions fetes al servidor.
+\end{itemize}
+
+Els requisits no funcionals d'un Test de Càrrega inclouen aquells que milloren la qualitat de la prova, però no són estrictament necessaris:
+
+\begin{itemize} 
+    \item El Test ha de realitzar peticions que generin una càrrega de treball considerable. 
+    \item El test ha de contenir tant contingut que no modifiqui l'estat del servidor, com contingut que sí que ho faci.
+\end{itemize}

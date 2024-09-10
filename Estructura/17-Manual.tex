@@ -1,2 +1,14 @@
 \chapter{Manual}
-\section{Manual d'usuari i/o instalació}
+
+Les instruccions per reproduir aquest projecte estan descrites a la \autoref{cap:11}, i les comandes per reproduir les proves es troben a la \autoref{11:resultats}.
+
+Per poder descarregar el codi del test de càrrega, es recomana seguir les instruccions descrites a la \autoref{màquina client} per descarregar el projecte a la màquina. Si es vol canviar la \textit{direcció IP} de les màquines, caldrà obrir l'arxiu \textit{ipfile.json} i modificar els valors de les dues \textit{IPs} per les \textit{Direccions IP} de les màquines que es vulguin utilitzar com a servidors. Al mateix temps, el test de càrrega anomenat \textit{script.js} està explicat a la subsecció \ref{codi:testDeCarrega}, per facilitar el canvi d'alguna de les variables \textit{hard-coded} dins del codi.
+
+Un cop tot estigui configurat correctament, es podrà utilitzar la comanda indicada a la \autoref{11:resultats} en el \textit{PowerShell}:
+
+
+\begin{lstlisting}[language=bash, caption=Comanda per al test de càrrega]
+    $env:K6_CLOUD={0}; $env:K6_PRIMER={1};$env:K6_MIG={2}; k6 run .\script.js
+\end{lstlisting}
+
+Cada un d'aquests arguments es passa com a variable d'entorn amb el prefix \textit{K6\_}, que es pot utilitzar com \textit{\_\_ENV.K6\_} dins del test de càrrega. Cada consola de comandes té una manera diferent de passar els arguments; es recomana familiaritzar-se amb la documentació oficial en cas de voler utilitzar cmd, bash o altres per executar \textit{k6}.\cite{stoykov_environment_nodate}

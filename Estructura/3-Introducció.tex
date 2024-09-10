@@ -1,9 +1,41 @@
-\chapter{Introducció}
-\section{Introducció, motivacions, propòsit i objectius del projecte}
-\subsection{Introducció}
+\chapter{Introducció, motivacions, propòsit i objectius del projecte}
 
-\subsection{Motivacions}
+\section{Introducció}
 
-\subsection{Proposit}
+Quan un usuari vol aconseguir informació d'internet, aquest està fent que el seu ordinador, mitjançant un programa anomenat Client, faci una petició per internet a un altre ordinador remot anomenat Servidor, el qual s'ocupa de rebre les peticions i retornar la informació adequada de tornada.\cite{wen_clientserver_1998}Durant la majoria de la història d'internet, els servidors estaven ubicats físicament als edificis de les empreses o particulars, però al voltant de 2005, a causa de publicacions de Google i amb l'inici de la comercialització d'EC2 per part d'Amazon, va començar gradualment una transició, sobretot per part de les grans empreses, per allotjar els programes en aquests servidors remots.
 
-\subsection{Objectius del projecte}
+Aquesta transició a l'anomenat \textit{Computació al núvol}, on se'ls cobraria un cost mensual a canvi d'accés a màquines virtuals als portals dels respectius proveïdors.\cite{qian_cloud_2009}
+Aquesta no ha parat de créixer des de la seva creació , fins als límits on, el 2023, empreses com AWS, actualment la més gran en el sector, generen 91.000 milions en ingressos.\cite{p_bezos_amazon-com-inc-2023-shareholder-letter_2024}
+
+Avui en dia, s'ha generat molt d'interès pels grans avantatges que té tenir els servidors al núvol, i moltes grans empreses ja tenen gran part del programari dissenyat per funcionar amb aquestes estructures. Tot i això, les empreses més petites o mitjanes sense coneixement tècnic segueixen en gran part sense poder utilitzar efectivament aquestes eines. \cite{khan_systematic_2024}
+
+Una de les principals maneres de contribuir perquè tant les empreses com els individus amb menys coneixements tècnics puguin aprofitar aquestes noves eines és proporcionar informació breu, entenedora i neutral, que els permeti comprendre la tecnologia i, així, decidir si realment els pot ser útil. Amb aquest treball, s'espera poder aportar un granet de sorra cap a aquesta direcció.
+
+\newpage
+\section{Motivacions}
+
+Tenir una infraestructura robusta que sigui capaç de processar moltes dades de manera persistent és una necessitat tant per a empreses grans com Amazon, com per a projectes relativament petits com els que seran esmentats a continuació: Fa uns anys va sortir una modificació del joc \textit{Mount \& Blade II: Bannerlord} anomenada \textit{Persistent Empires}. Aquest mod permet que al voltant de 600 jugadors puguin interactuar amb un món de manera persistent, cosa molt poc comuna en jocs 3D d'aquesta complexitat, fet que em va cridar molt l'atenció. Actualment, el servidor està allotjat en una màquina de tipus \textit{Game 2} a l'empresa OVHCloud, amb un cost al voltant dels 200 € mensuals.
+
+Per altra banda, i en menor escala en quant a la quantitat de jugadors, un servidor de Minecraft anomenat \textit{SimPvP} porta des del 2011 obert permanentment, oferint un lloc persistent perquè els jugadors es puguin expressar. Actualment, el servidor té un màxim de 100 jugadors, tot i això, l'antiguitat del mapa i la gran quantitat de canvis fets pels jugadors fan necessari que el servidor utilitzat sigui força potent, ja que el mapa sol ocupa 6TB. El servidor està allotjat a Hetzner en una màquina de tipus \textit{EX44} modificada amb més espai (1 TB SSD + 16 TB HDD lvmcache). El seu cost és al voltant dels 80 € mensuals.
+
+Però, què passa llavors amb empreses d'1-2 persones on majoritàriament l'única opció factible és contractar els serveis de consultories les quals, per norma general, no es poden permetre? O, per altra banda, els sortiria més a compte a aquests jocs esmentats prèviament llogar a les tres grans empreses del Núvol (AWS d'Amazon, Azure de Microsoft o GCP de Google) o comprar una màquina potent i gestionar-la ells mateixos a casa, en comptes del que fan actualment de llogar servidors virtuals dedicats (VPS en anglès) de proveïdors com OVH o DigitalOcean?
+
+
+\section{Proposit}
+
+El propòsit principal d'aquest treball és instal·lar un servidor d'un joc senzill en una màquina física que podria tenir qualsevol persona a casa, i un altre en un dels proveïdors principals al núvol, amb la intenció de poder trobar les dificultats que presenta cadascuna de les opcions. L'objectiu és identificar i analitzar els diferents obstacles amb què es podria trobar una persona lleugerament tècnica (estudiant de cicle o grau relacionat amb la informàtica) per fer accessibles a internet els dos servidors.
+
+Aquest estudi inclou fer uns tests d'estrès i una anàlisi dels dos tipis de  servidors per poder comparar-ne el rendiment i determinar en quin tipus de casos seria millor tenir un servidor en físic i en quins seria millor tenir-lo al núvol.
+
+\newpage
+\section{Objectius del projecte}
+
+Els principals objectius que es volen mostrar en aquest projecte són:
+
+\begin{itemize}
+    \item Procés d'instal·lació del joc senzill a les màquines
+    \item Passos necessaris per connectar el servidor del núvol a internet
+    \item Passos necessaris per connectar el servidor de casa a internet
+    \item Elaboració del codi que s'encarrega del test de càrrega
+    \item Resultats dels tests i anàlisis
+\end{itemize}

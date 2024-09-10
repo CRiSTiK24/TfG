@@ -1,2 +1,48 @@
-\chapter{Estudis}
-\section{Estudis i decisions}
+\chapter{Estudis i decisions}
+\label{cap:9}
+
+Aquest apartat és en el qual s'expliquen les diverses eines estudiades, i el per què han estat escollides.
+
+\section{Servidor}
+
+Al moment de buscar servidors als que fos possible aplicar-hi una càrrega considerable, es van descartar molts en veure que la instal·lació estava trencada o que no funcionarien bé a l'hora d'estressar-los:
+\subsection{Servidors no adequats per a la tasca}
+
+\subsubsection{Colonization-Conquerors}
+
+Tot i que aquest joc és molt ric en quant a contingut, és dependent d'una interfície d'usuari per a ser utilitzat. A més, la instal·lació i el testeig són força més complicats en ser dependent de l'editor de \textit{Godot}, un motor de videojocs. Per aquest motiu, es va optar per buscar jocs més senzills que es poguessin utilitzar des de la web.\cite{enders_timdenderscolonization-conquerors_2024}
+
+\subsubsection{Pizza Tribes}
+
+\textit{Pizza Tribes} és un projecte nascut a la \textit{RedisConf 2021 Hackathon}, que es va seguir desenvolupant públicament a \textit{GitHub} fins al 2023. És un projecte web amb una instal·lació més fàcil mitjançant \textit{Docker}, però és força complex en treballar amb \textit{WebSocket}, un protocol especialitzat en transferir dades en temps real a través d'internet \cite{wang_websocket_2013}. A més, el projecte no està acabat, sinó que s'ha continuat desenvolupant en privat. Per aquest motiu, es va decidir buscar un producte finalitzat, ja que així s'evitarien possibles errors en l'última versió del programari publicat, cosa que sol passar amb aquest tipus de projectes.\cite{noauthor_fnattepizza-tribes_nodate}
+
+\subsubsection{Travian}
+
+El joc \textit{Travian} és un RPG multijugador basat en web molt popular a internet, i el projecte en qüestió és un clon d'aquest. Tot i que ja es tenia experiència prèvia jugant a aquest joc en el passat, la instal·lació del clon és molt complicada, ja que està distribuïda en moltes pàgines, i el joc està inacabat i conté errors. Per tant, es va decidir buscar altres opcions.\cite{mousset_pierre-alexandre35travian_2024}
+
+\subsubsection{RESTful-API-Game}
+
+
+Aquest últim va cridar l'atenció, ja que utilitzava protocols generals com REST-API, un protocol utilitzat a internet per a obtenir i enviar informació de manera estandarditzada i molt simple\cite{rodriguez_rest_2016}, tot i que avui en dia és molt popular l'ús de galetes en conjunt amb REST-API, les quals permeten tenir en compte els missatges anteriors enviats al servidor, l'ús d'un backend que interaccioni mitjançant REST-API és ideal per a aquest projecte, ja que hi ha una gran quantitat d'eines disponibles per a estressar un backend amb aquest protocol\cite{li_design_2011}.
+
+\subsection{make-apis-fun}
+
+Finalment, buscant específicament jocs senzills que utilitzessin REST-API com a protocol d'interacció amb el backend, es va acabar trobant el backend escollit: \textit{make-apis-fun} \cite{noauthor_make-apis-funmake-apis-fun_2024}.Aquest Backend disposa de moltes virtuts per a aquest projecte:
+
+\begin{itemize}
+    \item  La primera és la facilitat d'instalació, és un servidor contenidoritzat, i tal com s'ha explicat a la \autoref{Docker}, la instanciació és a tots els sistemes operatius on estigui disponible el Docker Engine.
+    \item L'altra virtud és la senzilleza de les crides gracies a ser una REST-API de caràcter purista, es a dir, que no utilitza galetes ni autentificacions i per tant és una API sense estats
+    \item La tercera virtud és la seva llicencia \textit{GNU General Public License v3.0} la cual ens permet modificar-la i utilitzarla al nostre treball gracies a ser una llicencia de codi obert.
+\end{itemize}
+
+Aquests fets acabaràn sient essencials per a desenvolupar el treball, ja que aquest servidor té una gran desventatge: L'abandonament de la documentació del joc.
+
+Aquest projecte de la cual l'ultima actualització va ser fa tres anys, encara té les instruccions generals del joc, i com instalar-lo\cite{noauthor_make-apis-fungamesclue-apireadmemd_nodate}, pero la documentació técnica de com jugar-hi s'ha perdut.L'ultim rastre que es té de la documentació dels punts d'accés està a la \textit{Wayback Machine}, una pagina que permet guardar pagines per a tal de que si en el futur desapareixesin, encara estiguin disponibles a internet en forma de copies \cite{noauthor_make_2022}. Per desgracia, l'ultima copia de 2022 no disposa de la subpagines amb la informació dels punts d'accés o com jugar-hi.Per fortuna tot i que el codi està escrit en el framework \textit{Ruby on Rails}, un llenguatge i framework que mai s'havia utilitzat, eventualment s'ha pogut deduir la manera d'interactuar amb el servidor mitjançant la lectura del codi.
+
+Com a tallafoc per a les dues Màquines-Servidor s'ha escollit \textit{ufw}, que és un dels més populars i molt simple, adient per a sistemes simples com als nostres, i és necesari per permetre l'accés als ports desde la xarxa.\cite{noauthor_uncomplicated_nodate}
+
+\section{Client}
+
+Quan va quedar clar que s'utilitzaria una REST API per a comunicar-se amb el servidor, es van començar a buscar eines que permetessin fer tests de càrrega. Però abans de poder provar aquestes eines, calia esbrinar, mitjançant prova i error, com funcionava el servidor. Per fer això, inicialment es va voler utilitzar \textit{Postman}, un programa que permet enviar missatges de tipus HTTP o HTTPS en format REST API, que habitualment s'utilitza per verificar que els punts d'accés d'un servidor responen amb el contingut correcte. A causa de les dificultats causades per la monetització de Postman, i per afinitat amb programes de codi obert, es va canviar Postman per \textit{Hoppscotch}, que, essencialment, compleix les mateixes funcions.\cite{noauthor_hoppscotch_nodate}
+
+Un cop descoberts alguns punts d'accés bàsics, es va fer la selecció entre les diverses eines disponibles per a generar tests de càrrega. La primera eina que es va estudiar va ser \textit{Apache JMeter}. Aquesta permet fer moltes crides, però les guies d'instal·lació i execució la mostraven com bastant complicada \cite{noauthor_how_nodate}. En canvi, l'eina k6, escrita en Go i de codi obert, s'utilitza com a llibreria de JavaScript ES6 \cite{simpson_you_2015}, i resulta en un codi molt senzill que es pot executar fàcilment sense necessitat d'interfície gràfica.\cite{noauthor_running_nodate}

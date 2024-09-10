@@ -1,2 +1,60 @@
-\chapter{Estudi}
-\section{Estudi de viabilitat}
+\chapter{Estudi de viabilitat}
+
+Per tal de portar a la pràctica aquesta anàlisi, és necessari disposar de tres màquines. La primera serà l'ordinador que farà les peticions com a client, simulant una càrrega per als servidors. La segona pot ser qualsevol ordinador o portàtil vell que es tingui a disposició, que farà de servidor físic. La tercera, per altra banda, serà una màquina llogada al núvol.Per a aquest estudi en concret, s'ha triat un ordinador principal com a màquina client, és a dir, una màquina utilitzada diàriament que és prou potent i nova per a ser capaç d'enviar i rebre grans quantitats de dades als servidors sense que ens haguem de preocupar que faci de coll d'ampolla. En concret, la màquina disposa de les següents característiques:
+
+\begin{table}[ht]
+\centering
+\begin{tabular}{ |p{3cm}||p{3cm}|p{3cm}|p{3cm}|  }
+ \hline
+ \multicolumn{3}{|c|}{Màquina Client} \\
+ \hline
+ Components & Nom & Rendiment \\
+ \hline
+ CPU  & i5-8400 & 2.8GHz x 6 nuclis\\
+ RAM & 2x8GB  & 2133MHz   \\
+ Ethernet & Cat 5e & 100Mbps\\
+ \hline
+\end{tabular}
+\caption{Característiques principals de la Màquina Client}
+\label{Tab:MaquinaClient}
+\end{table}
+
+Per a la segona màquina, s'ha escollit un portàtil vell amb un valor actual al voltant dels 250€, \textit{l'Acer Aspire E5-521 62DW}. El motiu principal per escollir aquesta màquina és la seva similitud amb altres portàtils o ordinadors disponibles per a una gran part de la població, els quals no se'ls dona gaire ús a causa de la seva feblesa amb les noves versions de Windows. Així que és interessant descobrir com de útils podrien ser com a servidors físics a casa.
+
+\begin{table}[ht]
+\centering
+\begin{tabular}{ |p{3cm}||p{3cm}|p{3cm}|p{3cm}|  }
+ \hline
+ \multicolumn{3}{|c|}{Màquina Servidor Física} \\
+ \hline
+ Components & Nom & Rendiment \\
+ \hline
+ CPU  & AMD A6-6310 &  2 GHz x 4 nuclis\\
+ RAM & 2x4GB  &  1600MHz   \\ 
+ Ethernet & AR9565 Wireless & 65 Mbps\\ 
+ \hline
+\end{tabular}
+\caption{Característiques principals de la Màquina Servidor Física}
+\label{Tab:MaquinaServidorFisic}
+\end{table}
+
+Per a la tercera màquina, que ha de ser al núvol, s'ha escollit la \textit{e2-micro} a GCP. El motiu per escollir GCP és perquè prèviament a aquest projecte ja es tenia experiència bàsica amb Azure i AWS. Llavors es volia agafar una altra plataforma per estar el menys familiaritzat possible i així poder documentar les diverses dificultats. Pel que fa a la màquina en específic, la e2-micro és una màquina suficientment competent per a operacions senzilles, amb un lloguer que costa al voltant de 7,30€ al mes. La intenció amb aquesta màquina és poder comparar una màquina barata en el món del núvol amb la màquina anteriorment mostrada, la qual també és molt assequible.
+
+\begin{table}[ht]
+\centering
+\begin{tabular}{ |p{3cm}||p{3cm}|p{3cm}|p{3cm}|  }
+ \hline
+ \multicolumn{3}{|c|}{Màquina Servidor Núvol} \\
+ \hline
+ Components & Nom & Rendiment \\
+ \hline
+ CPU  & Intel Broadwell &  2.25GHz x 2 nuclis x 12,5\% del temps\\
+ RAM & 1GB  &  2000MHz   \\ %TODO: no hi ha manera de sabrer-ho
+ Ethernet & Ethernet & 1000 Mbps\\ 
+ \hline
+\end{tabular}
+\caption{Característiques principals de la Màquina Servidor Núvol}
+\label{Tab:MaquinaServidorNuvul}
+\end{table}
+
+Pot sorprendre que el rendiment de la CPU tingui un percentatge del temps. Això es deu al fet que aquesta màquina en particular té accés a dos nuclis, però només se li atorga $\frac{1}{8}$ part de segon de cada un dels nuclis. Per tant, és gairebé equivalent al 25\% d'una CPU d'un sol nucli que va a una freqüència de 2.25GHz, o a tot el temps d'un nucli amb una freqüència de 0.56GHz.
